@@ -9,3 +9,5 @@ shapely==1.8.0
 
 --find-links https://dl.fbaipublicfiles.com/detectron2/wheels/cu111/torch1.9/index.html
 detectron2
+
+pillow==9.1.0

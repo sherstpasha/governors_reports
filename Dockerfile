@@ -27,5 +27,13 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 RUN pip3 install https://github.com/kpu/kenlm/archive/master.zip
 RUN git clone --recursive https://github.com/parlance/ctcdecode.git
 RUN pip3 install ./ctcdecode
+RUN pip3 install jupyter
 
 WORKDIR /app
+
+COPY prediction.ipynb .
+COPY recognition.ipynb .
+COPY sigmentation.ipynb .
+
+# Определение команды для запуска ноутбука при старте контейнера
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''"]
